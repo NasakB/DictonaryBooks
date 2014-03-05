@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+      <!-- Database connection settings, Connect to HSQL, IN Memory  -->
+      <property name="connection.driver_class">org.hsqldb.jdbc.JDBCDriver</property>
+      <property name="connection.url">jdbc:hsqldb:file:src/main/resources/db/bookdb;shutdown=true</property>
+      <property name="connection.username">sa</property>
+      <property name="connection.password"></property>
+      <property name="dialect">org.hibernate.dialect.HSQLDialect</property>
+      <!--<property name="connection.shutdown">true</property>-->
+
+      <!--автоматическое обновление схемы БД-->
+      <property name="hbm2ddl.auto">update</property>
+      <!--вывод команд SQL на экран-->
+      <property name="show_sql">true</property>
+
+      <!--<property name="format_sql">true</property>-->
+      <!--JDBC connection pool (use the built-in) -->
+      <property name="connection.pool_size">0</property>
+      <property name="current_session_context_class">thread</property>
+
+      <mapping class="ru.dictonaryBooks.model.domain.Author"/>
+      <mapping class="ru.dictonaryBooks.model.domain.Books"/>
+      <mapping class="ru.dictonaryBooks.model.domain.Country"/>
+
+  </session-factory>
+</hibernate-configuration>
